@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../../includes/head", {title: "Log In"}) %>
+    <link rel="stylesheet" href="/styles/form.css" />
+    <link rel="stylesheet" href="/styles/auth.css" />
+  </head>
+  <body>
+    <%- include("../../includes/header") %>
+    <main>
+      <h1>Log In</h1>
+      <form action="/login" method="POST">
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+        <% if (!existingUser) { %>
+        <p class="invalid-input">User does not exist!</p>
+        <% } %>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            minlength="8"
+            required
+          />
+        </div>
+        <button class="btn">Log In</button>
+      </form>
+      <p>
+        Don't have an account yet?<span> </span
+        ><a class="login-signup-link" href="/signup">Sign Up</a>
+      </p>
+    </main>
+  </body>
+</html>

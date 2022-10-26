@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Montserrat", sans-serif;
+
+  /* --color-primary-50: rgb(253, 224, 200);
+  --color-primary-100: rgb(253, 214, 183);
+  --color-primary-200: rgb(250, 191, 143);
+  --color-primary-400: rgb(223, 159, 41);
+  --color-primary-500: rgb(212, 136, 14);
+  --color-primary-700: rgb(212, 120, 14);
+  --color-primary-200-contrast: rgb(100, 46, 2); */
+
+  --color-gray-50: rgb(243, 236, 230);
+  --color-gray-100: rgb(207, 201, 195);
+  --color-gray-400: rgb(70, 65, 60);
+  --color-gray-500: rgb(37, 34, 31);
+  --color-gray-600: rgb(32, 29, 26);
+  --color-gray-700: rgb(31, 26, 22);
+
+  --color-primary-main-bg: rgb(254, 253, 255);
+  --color-gray-300: rgb(99, 92, 86);
+  --color-primary-blue: rgb(34, 108, 224);
+  --color-font-main: rgb(13, 18, 43);
+  --color-primary-500-contrast: white;
+  --color-btn-hover: rgb(34, 76, 224);
+
+  --color-error-100: rgb(255, 192, 180);
+  --color-error-500: rgb(199, 51, 15);
+
+  --space-1: 0.2rem;
+  --space-2: 0.4rem;
+  --space-4: 0.8rem;
+  --space-6: 1.2rem;
+  --space-8: 1.6rem;
+  --space-10: 2rem;
+  --space-20: 4rem;
+
+  --border-radius-small: 4px;
+  --border-radius-medium: 6px;
+  --border-radius-large: 8px;
+
+  --shadow-medium: 1px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background-color: var(--color-primary-main-bg);
+  color: var(--color-font-main);
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 90%;
+  max-width: 70rem;
+  margin: auto;
+}
+
+header {
+  background-color: var(--color-primary-blue);
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+header a {
+  color: var(--color-primary-500-contrast);
+}
+
+.btn {
+  font: inherit;
+  cursor: pointer;
+  padding: var(--space-4) var(--space-6);
+  background-color: var(--color-primary-blue);
+  color: var(--color-primary-500-contrast);
+  border: 2px var(--color-primary-blue) solid;
+  border-radius: var(--border-radius-medium);
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--color-btn-hover);
+  border-color: var(--color-btn-hover);
+}

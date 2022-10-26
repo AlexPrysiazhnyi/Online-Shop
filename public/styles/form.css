@@ -1,0 +1,18 @@
+label {
+  margin: var(--space-1);
+  font-weight: 500;
+  font-size: 1.25rem;
+  display: block;
+}
+
+input {
+  width: 20rem;
+  font: inherit;
+  padding: var(--space-1);
+  border-radius: var(--border-radius-small);
+  border-color: var(--color-gray-300);
+}
+
+.form-control {
+  margin-bottom: var(--space-4);
+}

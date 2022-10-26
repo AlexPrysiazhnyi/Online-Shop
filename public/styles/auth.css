@@ -1,0 +1,38 @@
+main {
+    text-align: center;
+  }
+
+  form {
+    margin: var(--space-6) auto;
+    padding: var(--space-4);
+    max-width: 45rem;
+    background-color: #E0EAFB;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-medium);
+  }
+
+  form hr {
+    border-color: var(--color-primary-blue);
+    margin: var(--space-6);
+  }
+
+  .login-signup-link {
+    vertical-align: text-top;
+    color: var(--color-primary-blue);
+  }
+  
+  .login-signup-link:hover,
+  .login-signup-link:active {
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  .invalid-input {
+    margin: var(--space-2);
+    display: inline-block;
+    border-radius: var(--border-radius-small);
+    border: 1px solid var(--color-error-500);
+    padding: var(--space-2) var(--space-6);
+    background-color: var(--color-error-100);
+    color: var(--color-error-500);
+  }
