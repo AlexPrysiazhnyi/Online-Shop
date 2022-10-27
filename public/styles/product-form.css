@@ -1,0 +1,25 @@
+h1 {
+    text-align: center;
+  }
+
+form {
+    padding: var(--space-6);
+}
+
+.form-control {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+}
+
+textarea {
+    font: inherit;
+    width: 100%;
+    resize: vertical;
+}
+
+.btn-reset {
+    margin-right: var(--space-2);
+}

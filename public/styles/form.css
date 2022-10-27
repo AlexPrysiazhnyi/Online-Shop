@@ -1,3 +1,12 @@
+form {
+  margin: var(--space-6) auto;
+  padding: var(--space-4);
+  max-width: 45rem;
+  background-color: #E0EAFB;
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-medium);
+}
+
 label {
   margin: var(--space-1);
   font-weight: 500;

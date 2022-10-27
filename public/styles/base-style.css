@@ -21,14 +21,17 @@ html {
   --color-gray-700: rgb(31, 26, 22);
 
   --color-primary-main-bg: rgb(254, 253, 255);
+  --color-white: white;
   --color-gray-300: rgb(99, 92, 86);
   --color-primary-blue: rgb(34, 108, 224);
+  --color-primary-contrast: rgb(224, 169, 34);
   --color-font-main: rgb(13, 18, 43);
-  --color-primary-500-contrast: white;
   --color-btn-hover: rgb(34, 76, 224);
 
   --color-error-100: rgb(255, 192, 180);
   --color-error-500: rgb(199, 51, 15);
+  --color-reset: rgb(245, 93, 18);
+  --color-reset-hover: rgb(245, 25, 18);
 
   --space-1: 0.2rem;
   --space-2: 0.4rem;
@@ -73,7 +76,7 @@ a {
   cursor: pointer;
   padding: var(--space-4) var(--space-6);
   background-color: var(--color-primary-blue);
-  color: var(--color-primary-500-contrast);
+  color: var(--color-white);
   border: 2px var(--color-primary-blue) solid;
   border-radius: var(--border-radius-medium);
 }
@@ -82,4 +85,14 @@ a {
 .btn:focus {
   background-color: var(--color-btn-hover);
   border-color: var(--color-btn-hover);
+}
+
+.btn-reset {
+  background-color: var(--color-reset);
+  border-color: var(--color-reset);
+}
+
+.btn-reset:hover, .btn-reset:active {
+  background-color: var(--color-reset-hover);
+  border-color: var(--color-reset-hover);
 }

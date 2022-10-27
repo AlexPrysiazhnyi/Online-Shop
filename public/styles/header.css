@@ -20,7 +20,7 @@ header nav {
 }
 
 header a {
-  color: var(--color-primary-500-contrast);
+  color: var(--color-white);
 }
 
 #logo-control {
@@ -69,7 +69,7 @@ header a:active,
   width: 100vw;
   height: calc(100vh - 4.5rem);
   /* background-color: #E0EAFB; */
-  background-color: #e0a922;
+  background-color: var(--color-primary-contrast);
   color: var(--color-font-main);
   display: none;
   flex-direction: column;
@@ -166,7 +166,7 @@ header a:active,
     padding: 0;
     background-color: transparent;
     border: none;
-    color: var(--color-primary-500-contrast);
+    color: var(--color-white);
     cursor: pointer;
   }
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../../includes/head", {title: "All Products"}) %>
+  </head>
+  <body>
+    <%- include("../../includes/header") %>
+    <main>
+      <h1>Product Administration</h1>
+      <section>
+        <h2>Manage Products</h2>
+        <div>
+          <a class="btn" href="/admin/product/new">Add Product</a>
+        </div>
+      </section>
+      <section>
+        <ul>
+          <li>
+            <%- include("../../product-item") %>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
