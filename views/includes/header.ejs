@@ -1,9 +1,10 @@
 <header>
-  <div><a href="/">Online Shop</a></div>
-  <nav>
-    <ul>
-      <li><a href="/signup">Sign Up</a></li>
-      <li><a href="/login">Log In</a></li>
-    </ul>
-  </nav>
+  <div id="logo-control"><a href="/">DW</a></div>
+  <%- include("./navigation") %>
+  <button id="mobile-menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
+<aside id="mobile-menu"><%- include("./navigation") %></aside>

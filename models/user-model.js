@@ -10,7 +10,7 @@ class User {
       address,
       city,
       province,
-      "postal-code": postal,
+      postal,
       unit,
     };
   }

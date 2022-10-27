@@ -3,10 +3,14 @@ const express = require("express");
 // const expressSession = require("express-session");
 const csrf = require("csurf");
 const db = require("./data/database");
-const csrfToken = require("./middlewares/csrf");
-const authRoutes = require("./routes/auth-routes");
-const errorHandler = require("./middlewares/error-handler");
+
 const sessionConfig = require("./config/session-config");
+const csrfToken = require("./middlewares/csrf");
+const serverSideErrorHandler = require("./middlewares/error-handler");
+const userAuthMiddleware = require("./middlewares/check-auth");
+const authRoutes = require("./routes/auth-routes");
+const baseRoutes = require("./routes/base-routes");
+const productRoutes = require("./routes/product-routes");
 
 const app = express();
 
@@ -18,9 +22,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(sessionConfig());
 app.use(csrf());
 app.use(csrfToken);
+app.use(userAuthMiddleware);
 
+app.use(baseRoutes);
 app.use(authRoutes);
-app.use(errorHandler);
+app.use(productRoutes);
+// app.use(serverSideErrorHandler);
 
 db.connectToDB()
   .then(() => {
