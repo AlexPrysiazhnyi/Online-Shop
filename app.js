@@ -8,6 +8,7 @@ const sessionConfig = require("./config/session-config");
 const csrfToken = require("./middlewares/csrf");
 const serverSideErrorHandler = require("./middlewares/error-handler");
 const userAuthMiddleware = require("./middlewares/check-auth");
+const protectRoutesMiddleware = require("./middlewares/protect-route");
 const authRoutes = require("./routes/auth-routes");
 const baseRoutes = require("./routes/base-routes");
 const productRoutes = require("./routes/product-routes");
@@ -29,8 +30,12 @@ app.use(userAuthMiddleware);
 app.use(baseRoutes);
 app.use(authRoutes);
 app.use(productRoutes);
+app.use(protectRoutesMiddleware);
 app.use("/admin", adminRoutes);
-// app.use(serverSideErrorHandler);
+app.use((req, res) => {
+  res.render("errors/404");
+});
+app.use(serverSideErrorHandler);
 
 db.connectToDB()
   .then(() => {

@@ -62,7 +62,6 @@ const updateProduct = async (req, res, next) => {
 
   try {
     await singleProduct.updateProduct(updatedProductInfo);
-    console.log(updatedProductInfo);
   } catch (error) {
     return next(error);
   }
