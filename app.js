@@ -9,10 +9,12 @@ const csrfToken = require("./middlewares/csrf");
 const serverSideErrorHandler = require("./middlewares/error-handler");
 const userAuthMiddleware = require("./middlewares/check-auth");
 const protectRoutesMiddleware = require("./middlewares/protect-route");
+const cartSessionMiddleware = require("./middlewares/cart");
 const authRoutes = require("./routes/auth-routes");
 const baseRoutes = require("./routes/base-routes");
 const productRoutes = require("./routes/product-routes");
 const adminRoutes = require("./routes/admin-routes");
+
 
 const app = express();
 
@@ -22,8 +24,12 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
 app.use("/data/multimedia", express.static("product-data"));
 app.use(express.urlencoded({ extended: false }));
+
 app.use(sessionConfig());
 app.use(csrf());
+app.use(cartSessionMiddleware);
+
+
 app.use(csrfToken);
 app.use(userAuthMiddleware);
 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../../includes/head", {title: "Developer Warehouse" }) %>
+    <link rel="stylesheet" href="/styles/products.css" />
+  </head>
+  <body>
+    <%- include("../../includes/header") %>
+    <main id="product-details">
+      <section>
+        <img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
+        <div id="product-content">
+            <h2><%= product.title %></h2>
+            <h3><%= product.price %></h3>
+            <h4><%= product.summary %></h4>
+            <p id="product-description"><%= product.description %></p>
+            <button class="btn add-cart-btn">Add to Cart</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
