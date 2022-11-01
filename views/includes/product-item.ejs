@@ -1,8 +1,16 @@
 <article class="product-item">
-  <img src="" alt="" />
-  <h2></h2>
-  <div>
-    <a class="btn" href="">View & Edit</a>
-    <button class="btn">Delete</button>
+  <div class="product-item--content">
+    <img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
+    <h2><%= product.title %></h2>
+    <h3>$<%= product.price %></h3>
+    <div class="product-item--actions">
+      <a class="btn grid-btn" href="/admin/products/<%= product.id %>"
+        >View & Edit</a
+      >
+      <form action="/admin/delete/<%= product.id %>" method="POST">
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+        <button class="btn btn-reset grid-btn">Delete</button>
+      </form>
+    </div>
   </div>
 </article>

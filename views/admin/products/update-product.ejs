@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include("../../includes/head", {title: "New Product"}) %>
+    <%- include("../../includes/head", {title: "Update Product"}) %>
     <link rel="stylesheet" href="/styles/form.css" />
     <link rel="stylesheet" href="/styles/product-form.css" />
     <script src="/scripts/image-preview.js" defer></script>
@@ -9,58 +9,33 @@
   <body>
     <%- include("../../includes/header") %>
     <main>
-      <h1>Add New Product</h1>
-      <form
-        action="/admin/product/new?_csrf=<%= locals.csrfToken %>"
-        method="POST"
-        enctype="multipart/form-data"
-      >
+      <h1>Update Existing Product</h1>
+      <form action="/admin/products/<%= product.id %>?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
         <div class="form-control">
           <label for="title">Title</label>
-          <input type="text" id="title" name="title" required />
+          <input type="text" id="title" name="title" value="<%=product.title %>" required/>
         </div>
         <div class="form-control image-control">
           <label for="image">Image</label>
-
+          <img src="" alt="" id="image-preview">
           <input
             type="file"
             name="image"
             id="image"
             accept="image/png,image/jpg"
-            required
           />
-          <img src="" alt="Selected Image" id="image-preview" />
         </div>
         <div class="form-control">
           <label for="summary">Summary</label>
-          <input
-            type="text"
-            id="summary"
-            name="summary"
-            maxlength="200"
-            required
-          />
+          <input type="text" id="summary" name="summary" value="<%=product.summary %>" maxlength="200" required/>
         </div>
         <div class="form-control">
           <label for="price">Price</label>
-          <input
-            type="number"
-            id="price"
-            name="price"
-            min="0.01"
-            step="0.01"
-            required
-          />
+          <input type="number" id="price" name="price" value="<%=product.price %>" min="0.01" step="0.01" required/>
         </div>
         <div class="form-control">
           <label for="description">Description</label>
-          <textarea
-            type="text"
-            id="description"
-            name="description"
-            rows="10"
-            required
-          ></textarea>
+          <textarea type="text" id="description" name="description" rows="10" required><%=product.description %></textarea>
         </div>
         <button class="btn btn-reset" type="reset">Reset</button>
         <button type="submit" class="btn">Save</button>

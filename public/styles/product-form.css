@@ -23,3 +23,20 @@ textarea {
 .btn-reset {
     margin-right: var(--space-2);
 }
+
+.image-control {
+    display: flex;
+    align-items: center;
+}
+
+#image {
+    max-width: 15rem;
+}
+
+#image-preview {
+    display: none;
+    width: 7rem;
+    height: 7rem;
+    border-radius: var(--border-radius-small);
+    object-fit: contain;
+}
