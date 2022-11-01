@@ -69,7 +69,7 @@ header a:active,
   width: 100vw;
   height: calc(100vh - 4.5rem);
   /* background-color: #E0EAFB; */
-  background-color: var(--color-primary-contrast);
+  background-color: var(--color-primary-fill-contrast);
   color: var(--color-font-main);
   display: none;
   flex-direction: column;

@@ -24,7 +24,7 @@ html {
   --color-white: white;
   --color-gray-300: rgb(99, 92, 86);
   --color-primary-blue: rgb(34, 108, 224);
-  --color-primary-contrast: rgb(224, 169, 34);
+  /* --color-primary-fill-contrast: rgb(240, 209, 146); */
   --color-font-main: rgb(13, 18, 43);
   --color-btn-hover: rgb(34, 76, 224);
 
@@ -49,6 +49,7 @@ html {
 }
 
 body {
+  /* background-color: var(--color-primary-fill-contrast); */
   background-color: var(--color-primary-main-bg);
   color: var(--color-font-main);
   margin: 0;

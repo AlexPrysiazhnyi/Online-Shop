@@ -44,17 +44,17 @@ class Product {
 
   static async findSingleProduct(id) {
     let ObjectId;
+    let singleProduct;
     try {
       ObjectId = mongo.ObjectId;
+      singleProduct = await db
+        .getDB()
+        .collection("products")
+        .findOne({ _id: new ObjectId(id) });
     } catch (error) {
       error.code = 404;
       throw error;
     }
-
-    const singleProduct = await db
-      .getDB()
-      .collection("products")
-      .findOne({ _id: new ObjectId(id) });
 
     if (!singleProduct) {
       const error = new Error("Product with provided ID not found!");

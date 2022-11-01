@@ -4,6 +4,7 @@
     <h2><%= product.title %></h2>
     <h3>$<%= product.price %></h3>
     <div class="product-item--actions">
+      <% if (locals.isAdmin) { %>
       <a class="btn grid-btn" href="/admin/products/<%= product.id %>"
         >View & Edit</a
       >
@@ -11,6 +12,9 @@
         <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
         <button class="btn btn-reset grid-btn">Delete</button>
       </form>
+      <% } else { %> 
+        <a class="btn grid-btn" href="/products/<%= product.id %>">View Details</a>
+        <% } %>
     </div>
   </div>
 </article>

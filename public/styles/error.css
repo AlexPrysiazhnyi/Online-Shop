@@ -1,4 +1,15 @@
 main {
-    text-align: center;
-    margin-top: var(--space-20);
+  text-align: center;
+  margin-top: var(--space-20);
+}
+
+.login-signup-link {
+  font-weight: 500;
+  vertical-align: text-top;
+  color: var(--color-primary-blue);
+}
+
+.login-signup-link:hover,
+.login-signup-link:active {
+  text-decoration: underline;
 }
