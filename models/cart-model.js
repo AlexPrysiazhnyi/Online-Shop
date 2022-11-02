@@ -3,17 +3,18 @@ class Cart {
     this.items = items;
   }
 
-  addItem(product) {
+  addItem(productToAdd) {
     const cartItem = {
-      product,
+      product: productToAdd,
       quantity: 1,
       totalPrice: product.price * quantity,
     };
 
     this.items.forEach((item) => {
-      if (item.product.id === product.id) {
+      if (item.product.id === productToAdd.id) {
         cartItem.quantity++;
-        item = cartItem;
+        console.log(cartItem);
+        // item = cartItem;
         return;
       }
     });

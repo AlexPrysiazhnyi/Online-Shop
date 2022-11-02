@@ -6,7 +6,7 @@ const db = require("./data/database");
 
 const sessionConfig = require("./config/session-config");
 const csrfToken = require("./middlewares/csrf");
-const serverSideErrorHandler = require("./middlewares/error-handler");
+const errorHandler = require("./middlewares/error-handler");
 const userAuthMiddleware = require("./middlewares/check-auth");
 const protectRoutesMiddleware = require("./middlewares/protect-route");
 const cartSessionMiddleware = require("./middlewares/cart");
@@ -14,7 +14,6 @@ const authRoutes = require("./routes/auth-routes");
 const baseRoutes = require("./routes/base-routes");
 const productRoutes = require("./routes/product-routes");
 const adminRoutes = require("./routes/admin-routes");
-
 
 const app = express();
 
@@ -29,19 +28,17 @@ app.use(sessionConfig());
 app.use(csrf());
 app.use(cartSessionMiddleware);
 
-
 app.use(csrfToken);
 app.use(userAuthMiddleware);
 
 app.use(baseRoutes);
 app.use(authRoutes);
 app.use(productRoutes);
-app.use(protectRoutesMiddleware);
-app.use("/admin", adminRoutes);
-app.use((req, res) => {
-  res.render("errors/404");
-});
-app.use(serverSideErrorHandler);
+// app.use(protectRoutesMiddleware);
+app.use("/admin", protectRoutesMiddleware, adminRoutes);
+
+app.use(errorHandler.resourseNotFound);
+app.use(errorHandler.serverSide);
 
 db.connectToDB()
   .then(() => {
