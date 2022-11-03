@@ -12,10 +12,18 @@
         <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
         <button class="btn btn-reset grid-btn">Delete</button>
       </form>
-      <% } else { %> 
-        <a class="btn grid-btn" href="/products/<%= product.id %>">View Details</a>
-        <button class="btn grid-btn add-cart-btn" data-product-id="<%= product.id %>" >Add to Cart</button>
-        <% } %>
+      <% } else { %>
+      <a class="btn grid-btn" href="/products/<%= product.id %>"
+        >View Details</a
+      >
+      <button
+        class="btn grid-btn add-cart-btn"
+        data-productid="<%= product.id %>"
+        data-csrf="<%= locals.csrfToken %>"
+      >
+        Add to Cart
+      </button>
+      <% } %>
     </div>
   </div>
 </article>

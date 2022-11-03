@@ -47,12 +47,17 @@ header a:active,
 }
 
 .items-counter {
+  display: none;
   font-size: 0.75rem;
   background-color: var(--color-white);
   color: var(--color-primary-blue);
   margin-left: var(--space-1);
   padding: 0.15rem 0.4rem 0 0.4rem;
   border-radius: 10rem;
+}
+
+.items-counter.open {
+  display: inline;
 }
 
 #cart-anchor:hover,

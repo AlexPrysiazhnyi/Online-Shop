@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <%- include("../../includes/head", {title: "Your Cart"}) %>
-    <link rel="stylesheet" href="/styles/products.css" />
     <link rel="stylesheet" href="/styles/cart.css" />
   </head>
   <body>
@@ -18,8 +17,8 @@
           include("../../includes/cart-item", {item: cartItem}) %> <% } %>
         </ul>
         <div id="cart-total">
-          <p>$<%=locals.cart.totalPrice.toFixed(2) %></p>
-          <button class="btn">Place Order</button>
+          <p>Total: $<%=locals.cart.totalPrice.toFixed(2) %></p>
+          <button id="place-order-btn" class="btn">Place Order</button>
         </div>
       </section>
       <% } %>

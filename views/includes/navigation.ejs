@@ -3,7 +3,11 @@
     <li><a href="/">Shop</a></li>
     <% if (!locals.isAdmin) { %>
     <li>
-      <a id="cart-anchor" href="/cart">Cart<span class="items-counter"><%= locals.cart.totalQuantity %></span></a
+      <a id="cart-anchor" href="/cart"
+        >Cart<span
+          class="items-counter <% if (locals.cart.totalQuantity !== 0) { %> open <% } %>"
+          ><%= locals.cart.totalQuantity %></span
+        ></a
       >
     </li>
     <% } %> <% if (locals.isAdmin) { %>

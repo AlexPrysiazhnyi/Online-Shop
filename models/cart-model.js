@@ -21,17 +21,13 @@ class Cart {
 
         this.totalQuantity++;
         this.totalPrice += product.price;
-        // console.log(cartItem);
         return;
       }
     }
 
-    
     this.totalQuantity++;
     this.totalPrice += product.price;
     this.items.push(cartItem);
-    // console.log("Still Fired");
-    // console.log(cartItem);
   }
 }
 

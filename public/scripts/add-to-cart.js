@@ -1,10 +1,13 @@
-const addToCartBtn = document.querySelector(".add-cart-btn");
-const itemsCounter = document.querySelector(".items-counter");
+const allProductsUL = document.getElementById("all-products-grid");
 
-const addProductToCart = async () => {
+const addProductToCart = async (event) => {
+  if (event.target.tagName !== "BUTTON") {
+    return;
+  }
+    const itemsCounter = document.querySelector(".items-counter");
     let response;
-    const productId = addToCartBtn.dataset.productid;
-    const csrfToken = addToCartBtn.dataset.csrf;
+    const productId = event.target.dataset.productid;
+    const csrfToken = event.target.dataset.csrf;
     try {
       response = await fetch("/cart/items", {
         method: "POST",
@@ -32,5 +35,5 @@ const addProductToCart = async () => {
   
     console.log(responseData);
   };
-  
-addToCartBtn.addEventListener("click", addProductToCart);
+
+  allProductsUL.addEventListener("click", addProductToCart)
