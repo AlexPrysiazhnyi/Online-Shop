@@ -1,23 +1,26 @@
 <nav>
-    <ul id="main-header">
-      <li><a href="/">Shop</a></li>
-      <% if (!locals.isAdmin) { %>
-      <li><a href="/cart">Cart</a></li>
-      <% } %> <% if (locals.isAdmin) { %>
-      <li><a href="/admin/products">Manage Products</a></li>
-      <li><a href="/admin/orders">Manage Orders</a></li>
-      <% } %> <% if (!locals.isAuth) { %>
-      <li><a href="/signup">Sign Up</a></li>
-      <li><a href="/login">Log In</a></li>
-      <% } %> <% if (locals.isAuth && !locals.isAdmin) { %>
-      <li><a href="/orders">Orders</a></li>
-      <% } %> <% if (locals.isAuth) { %>
-      <li>
-        <form id="logout-form" action="/logout" method="POST">
-          <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
-          <button id="btn-link">Logout</button>
-        </form>
-      </li>
-      <% } %>
-    </ul>
-  </nav>
+  <ul id="main-header">
+    <li><a href="/">Shop</a></li>
+    <% if (!locals.isAdmin) { %>
+    <li>
+      <a id="cart-anchor" href="/cart">Cart<span class="items-counter"><%= locals.cart.totalQuantity %></span></a
+      >
+    </li>
+    <% } %> <% if (locals.isAdmin) { %>
+    <li><a href="/admin/products">Manage Products</a></li>
+    <li><a href="/admin/orders">Manage Orders</a></li>
+    <% } %> <% if (!locals.isAuth) { %>
+    <li><a href="/signup">Sign Up</a></li>
+    <li><a href="/login">Log In</a></li>
+    <% } %> <% if (locals.isAuth && !locals.isAdmin) { %>
+    <li><a href="/orders">Orders</a></li>
+    <% } %> <% if (locals.isAuth) { %>
+    <li>
+      <form id="logout-form" action="/logout" method="POST">
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+        <button id="btn-link">Logout</button>
+      </form>
+    </li>
+    <% } %>
+  </ul>
+</nav>

@@ -84,7 +84,7 @@ a {
 }
 
 .btn:hover,
-.btn:focus {
+.btn:active {
   background-color: var(--color-btn-hover);
   border-color: var(--color-btn-hover);
 }
@@ -94,7 +94,8 @@ a {
   border-color: var(--color-reset);
 }
 
-.btn-reset:hover, .btn-reset:active {
+.btn-reset:hover,
+.btn-reset:active {
   background-color: var(--color-reset-hover);
   border-color: var(--color-reset-hover);
 }

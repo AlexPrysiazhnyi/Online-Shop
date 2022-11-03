@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../../includes/head", {title: "Your Cart"}) %>
+    <link rel="stylesheet" href="/styles/products.css" />
+    <link rel="stylesheet" href="/styles/cart.css" />
+  </head>
+  <body>
+    <%- include("../../includes/header") %>
+    <main>
+        <% if (locals.cart.items.length === 0) { %>
+            <h1>Your Cart is Empty!</h1>
+       <% } else { %>
+      <h1>Your Cart</h1>
+      <section>
+        <ul id="cart-items">
+          <% for (const cartItem of locals.cart.items) { %> <%-
+          include("../../includes/cart-item", {item: cartItem}) %> <% } %>
+        </ul>
+        <div id="cart-total">
+          <p>$<%=locals.cart.totalPrice.toFixed(2) %></p>
+          <button class="btn">Place Order</button>
+        </div>
+      </section>
+      <% } %>
+    </main>
+  </body>
+</html>
