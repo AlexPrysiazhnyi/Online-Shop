@@ -64,6 +64,10 @@ h1 {
     border: rgb(40, 127, 36);
 }
 
+.total-price-paragraph {
+    display: inline-block;
+}
+
 @media (min-width: 48rem) {
     .cart-item {
         width: 80%;

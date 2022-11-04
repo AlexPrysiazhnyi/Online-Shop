@@ -31,25 +31,28 @@ class Cart {
   }
 
   updateItem(productId, updatedQuantity) {
-
     for (let i = 0; i < this.items.length; i++) {
-        const item = this.items[i];
+      const item = this.items[i];
 
-        if (item.product.id === productId && updatedQuantity > 0) {
-            const cartItem = {...item};
-            const quantityChange = updatedQuantity - item.quantity;
-            cartItem.quantity = updatedQuantity;
-            cartItem.totalPrice = updatedQuantity * item.product.price;
-            this.items[i] = cartItem;
-  
-            this.totalQuantity += quantityChange;
-            this.totalPrice += quantityChange * item.product.price;
-            return;
-        } else if (item.product.id === productId && updatedQuantity <= 0) {
+      if (item.product.id === productId && updatedQuantity > 0) {
+        const cartItem = { ...item };
+        const quantityChange = updatedQuantity - item.quantity;
+        cartItem.quantity = updatedQuantity;
+        cartItem.totalPrice = updatedQuantity * item.product.price;
+        this.items[i] = cartItem;
 
-        }
+        this.totalQuantity += quantityChange;
+        this.totalPrice += quantityChange * item.product.price;
+        return this.items[i].totalPrice;
+      } 
+      else if (item.product.id === productId && updatedQuantity <= 0) {
+        this.items.splice(i, 1);
+        this.totalQuantity -= item.quantity;
+        this.totalPrice -= item.totalPrice;
+        return;
       }
     }
   }
+}
 
 module.exports = Cart;

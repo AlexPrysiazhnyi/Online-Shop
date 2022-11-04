@@ -40,8 +40,8 @@ app.use("/cart", cartRoutes);
 // app.use(protectRoutesMiddleware);
 app.use("/admin", protectRoutesMiddleware, adminRoutes);
 
-app.use(errorHandler.resourseNotFound);
-app.use(errorHandler.serverSide);
+// app.use(errorHandler.resourseNotFound);
+// app.use(errorHandler.serverSide);
 
 db.connectToDB()
   .then(() => {

@@ -2,14 +2,26 @@
   <article class="cart-item">
     <div class="cart-item-info">
       <h2><%= item.product.title %></h2>
-      <p>
-       $ <%= item.totalPrice.toFixed(2) %>
-        <span class="cart-product-price">($<%= item.product.price.toFixed(2) %> per item)</span>
-      </p>
+      <p class="total-price-paragraph">$ <%= item.totalPrice.toFixed(2) %></p>
+      <span class="cart-product-price"
+        >($<%= item.product.price.toFixed(2) %> per item)</span
+      >
     </div>
     <div class="cart-item-mgmt">
-      <input type="number" value="<%= item.quantity %>" min="0" step="1" required />
-      <button class="btn">Update</button>
+      <form
+        action="/cart/items"
+        data-productid="<%= item.product.id %>"
+        data-csrf="<%= locals.csrfToken %>"
+      >
+        <input
+          type="number"
+          value="<%= item.quantity %>"
+          min="0"
+          step="1"
+          required
+        />
+        <button class="btn">Update</button>
+      </form>
     </div>
   </article>
 </li>

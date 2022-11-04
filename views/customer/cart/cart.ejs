@@ -3,10 +3,11 @@
   <head>
     <%- include("../../includes/head", {title: "Your Cart"}) %>
     <link rel="stylesheet" href="/styles/cart.css" />
+    <script src="/scripts/cart-mgmt.js" defer></script>
   </head>
   <body>
     <%- include("../../includes/header") %>
-    <main>
+    <main id="cart-main">
         <% if (locals.cart.items.length === 0) { %>
             <h1>Your Cart is Empty!</h1>
        <% } else { %>
