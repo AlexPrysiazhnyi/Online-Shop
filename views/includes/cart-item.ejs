@@ -8,7 +8,7 @@
       </p>
     </div>
     <div class="cart-item-mgmt">
-      <input type="number" value="<%= item.quantity %>" required />
+      <input type="number" value="<%= item.quantity %>" min="0" step="1" required />
       <button class="btn">Update</button>
     </div>
   </article>

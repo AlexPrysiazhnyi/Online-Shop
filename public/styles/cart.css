@@ -34,7 +34,7 @@ h1 {
 }
 
 #cart-total {
-    margin-top: var(--space-6);
+    margin: var(--space-10) 0;
     height: 4rem;
     display: flex;
     flex-direction: column;
@@ -66,6 +66,7 @@ h1 {
 
 @media (min-width: 48rem) {
     .cart-item {
+        width: 80%;
         max-width: 60rem;
         flex-direction: row;
         justify-content: space-between;
