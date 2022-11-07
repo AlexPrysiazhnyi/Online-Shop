@@ -35,14 +35,13 @@ h1 {
 
 #cart-total {
     margin: var(--space-10) 0;
-    height: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#cart-total p {
+#total-price-paragraph {
     margin: 0;
     font-size: 1.5rem;
     font-weight: 500;
@@ -67,6 +66,23 @@ h1 {
 .total-price-paragraph {
     display: inline-block;
 }
+
+#login-paragraph {
+    margin: var(--space-6);
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.login-signup-link {
+    vertical-align: text-top;
+    color: var(--color-primary-blue);
+  }
+  
+  .login-signup-link:hover,
+  .login-signup-link:active {
+    text-decoration: underline;
+    font-weight: 500;
+  }
 
 @media (min-width: 48rem) {
     .cart-item {

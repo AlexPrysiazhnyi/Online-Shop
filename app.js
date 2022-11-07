@@ -15,6 +15,7 @@ const baseRoutes = require("./routes/base-routes");
 const productRoutes = require("./routes/product-routes");
 const cartRoutes = require("./routes/cart-routes");
 const adminRoutes = require("./routes/admin-routes");
+const ordersRoutes = require("./routes/orders-routes");
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.use(authRoutes);
 app.use(productRoutes);
 app.use("/cart", cartRoutes);
 // app.use(protectRoutesMiddleware);
+app.use("/orders", ordersRoutes);
 app.use("/admin", protectRoutesMiddleware, adminRoutes);
 
 // app.use(errorHandler.resourseNotFound);

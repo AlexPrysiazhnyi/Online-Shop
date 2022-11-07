@@ -8,9 +8,9 @@
   <body>
     <%- include("../../includes/header") %>
     <main id="cart-main">
-        <% if (locals.cart.items.length === 0) { %>
-            <h1>Your Cart is Empty!</h1>
-       <% } else { %>
+      <% if (locals.cart.items.length === 0) { %>
+      <h1>Your Cart is Empty!</h1>
+      <% } else { %>
       <h1>Your Cart</h1>
       <section>
         <ul id="cart-items">
@@ -18,8 +18,21 @@
           include("../../includes/cart-item", {item: cartItem}) %> <% } %>
         </ul>
         <div id="cart-total">
-          <p>Total: $<%=locals.cart.totalPrice.toFixed(2) %></p>
-          <button id="place-order-btn" class="btn">Place Order</button>
+          <p id="total-price-paragraph">
+            Total: $<%=locals.cart.totalPrice.toFixed(2) %>
+          </p>
+          <% if (locals.user || locals.isAuth) { %>
+          <form action="/orders" method="POST">
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+            <button id="place-order-btn" class="btn">Place Order</button>
+          </form>
+          <% } else { %>
+          <p id="login-paragraph">
+            Please<span>
+              <a class="login-signup-link" href="/login">log in</a>
+            </span>
+            to finish your purchase! <% } %>
+          </p>
         </div>
       </section>
       <% } %>

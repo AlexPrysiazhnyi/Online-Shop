@@ -1,3 +1,4 @@
+const mongodb = require("mongodb");
 const bcrypt = require("bcryptjs");
 const db = require("../data/database");
 
@@ -24,6 +25,16 @@ class User {
       address: this.address,
     };
     await db.getDB().collection("users").insertOne(user);
+  }
+
+  static async findUserById(id) {
+    const ObjectId = mongodb.ObjectId;
+    const userId = new ObjectId(id);
+    const user = await db
+      .getDB()
+      .collection("users")
+      .findOne({ _id: userId }, { projection: {password: 0} });
+      return user;
   }
 
   async userExists() {

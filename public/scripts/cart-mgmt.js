@@ -8,7 +8,7 @@ const updateItemInCart = async (event) => {
   const submittedForm = event.target;
   const productId = submittedForm.dataset.productid;
   const csrfToken = submittedForm.dataset.csrf;
-  const updatedQuantity = submittedForm.firstElementChild.value;
+  const updatedQuantity = +submittedForm.firstElementChild.value;
   const totalItemsPriceEl =
     submittedForm.parentElement.previousElementSibling.children[1];
   let response;
@@ -31,7 +31,7 @@ const updateItemInCart = async (event) => {
   const responseData = await response.json();
 
   itemsCounter.textContent = responseData.totalItems;
-  totalCartPriceEl.textContent = `Total: ${responseData.totalPrice.toFixed(2)}`;
+  totalCartPriceEl.textContent = `Total: \$${responseData.totalPrice.toFixed(2)}`;
 
   if (responseData.updatedCartItemPrice) {
     totalItemsPriceEl.textContent = `\$${responseData.updatedCartItemPrice.toFixed(
@@ -46,6 +46,7 @@ const updateItemInCart = async (event) => {
   if (itemsCounter.textContent <= 0) {
     mainHTMLEl.innerHTML = "<h1>Your Cart is Empty!</h1>";
     itemsCounter.classList.remove("open");
+    return;
   }
 };
 
