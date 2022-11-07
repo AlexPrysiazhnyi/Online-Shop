@@ -93,7 +93,6 @@ const getOrders = async (req, res, next) => {
 const updateOrder = async (req, res, next) => {
   const orderId = req.params.id;
   const newStatus = req.body.newStatus;
-  console.log(orderId, newStatus);
 
   try {
     const order = await Order.findOrderById(orderId);

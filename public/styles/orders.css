@@ -27,11 +27,6 @@
     color: var(--color-primary-700);
 }
   
-  /* .order-item .status {
-    display: flex;
-    min-width: 15rem;
-} */
-  
   .order-item .order-status {
     margin-right: var(--space-2);
     background-color: var(--color-primary-blue);
@@ -56,6 +51,10 @@
     padding: var(--space-2);
     border-radius: var(--border-radius-small);
 }
+
+/* .order-actions {
+    text-align: center;
+} */
 
 .btn {
     padding: var(--space-2) var(--space-4);

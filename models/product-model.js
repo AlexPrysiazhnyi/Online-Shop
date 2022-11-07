@@ -64,6 +64,22 @@ class Product {
     return new Product(singleProduct);
   }
 
+  static async findMultipleProducts(arrayofIDs) {
+    const productIds = arrayofIDs.map((singleId) => {
+      return new mongo.ObjectId(singleId);
+    });
+
+    const products = await db
+      .getDB()
+      .collection("products")
+      .find({ _id: { $in: productIds } })
+      .toArray();
+
+    return products.map((product) => {
+      return new Product(product);
+    });
+  }
+
   async updateProduct(product) {
     const ObjectId = mongo.ObjectId;
     await db

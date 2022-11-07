@@ -49,11 +49,12 @@ header a:active,
 .items-counter {
   display: none;
   font-size: 0.75rem;
-  background-color: var(--color-white);
-  color: var(--color-primary-blue);
-  margin-left: var(--space-1);
+  background-color: var(--color-primary-blue);
+  color: var(--color-white);
+  margin-left: var(--space-2);
   padding: 0.15rem 0.4rem 0 0.4rem;
   border-radius: 10rem;
+  vertical-align: middle;
 }
 
 .items-counter.open {
@@ -89,9 +90,9 @@ header a:active,
   left: 0;
   width: 100vw;
   height: calc(100vh - 4.5rem);
-  background-color: yellow;
+  background-color: var(--color-white);
   /* background-color: var(--color-primary-fill-contrast); */
-  color: var(--color-font-main);
+  /* color: var(--color-white); */
   display: none;
   flex-direction: column;
   align-items: center;
@@ -120,7 +121,7 @@ header a:active,
 #btn-link {
   font: inherit;
   font-size: 1.5rem;
-  color: var(--color-font-main);
+  color: var(--color-primary-blue);
 }
 
 #logout-form {
@@ -160,6 +161,11 @@ header a:active,
 
   #mobile-menu {
     display: none;
+  }
+
+  .items-counter {
+    background-color: var(--color-white);
+    color: var(--color-primary-blue);
   }
 
   #main-header {

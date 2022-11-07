@@ -10,6 +10,7 @@ const errorHandler = require("./middlewares/error-handler");
 const userAuthMiddleware = require("./middlewares/check-auth");
 const protectRoutesMiddleware = require("./middlewares/protect-route");
 const cartSessionMiddleware = require("./middlewares/cart");
+const updateCartPricesMiddleware = require("./middlewares/update-cart-prices");
 const authRoutes = require("./routes/auth-routes");
 const baseRoutes = require("./routes/base-routes");
 const productRoutes = require("./routes/product-routes");
@@ -32,18 +33,18 @@ app.use(csrf());
 app.use(csrfToken);
 
 app.use(cartSessionMiddleware);
+app.use(updateCartPricesMiddleware);
 app.use(userAuthMiddleware);
 
 app.use(baseRoutes);
 app.use(authRoutes);
 app.use(productRoutes);
 app.use("/cart", cartRoutes);
-// app.use(protectRoutesMiddleware);
 app.use("/orders", ordersRoutes);
 app.use("/admin", protectRoutesMiddleware, adminRoutes);
 
-// app.use(errorHandler.resourseNotFound);
-// app.use(errorHandler.serverSide);
+app.use(errorHandler.resourseNotFound);
+app.use(errorHandler.serverSide);
 
 db.connectToDB()
   .then(() => {

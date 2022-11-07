@@ -1,6 +1,6 @@
 const mainHTMLEl = document.getElementById("cart-main");
 const updateItemForms = document.querySelectorAll(".cart-item-mgmt form");
-const itemsCounter = document.querySelector(".items-counter");
+const itemsCounterElements = document.querySelectorAll(".items-counter");
 const totalCartPriceEl = document.querySelector("#cart-total p");
 
 const updateItemInCart = async (event) => {
@@ -29,9 +29,13 @@ const updateItemInCart = async (event) => {
   }
 
   const responseData = await response.json();
+  itemsCounterElements.forEach((itemsCounter) => {
+    itemsCounter.textContent = responseData.totalItems;
+  });
 
-  itemsCounter.textContent = responseData.totalItems;
-  totalCartPriceEl.textContent = `Total: \$${responseData.totalPrice.toFixed(2)}`;
+  totalCartPriceEl.textContent = `Total: \$${responseData.totalPrice.toFixed(
+    2
+  )}`;
 
   if (responseData.updatedCartItemPrice) {
     totalItemsPriceEl.textContent = `\$${responseData.updatedCartItemPrice.toFixed(
@@ -42,12 +46,12 @@ const updateItemInCart = async (event) => {
   if (updatedQuantity <= 0) {
     submittedForm.closest("li").remove();
   }
-
-  if (itemsCounter.textContent <= 0) {
-    mainHTMLEl.innerHTML = "<h1>Your Cart is Empty!</h1>";
-    itemsCounter.classList.remove("open");
-    return;
-  }
+  itemsCounterElements.forEach((itemsCounter) => {
+    if (itemsCounter.textContent <= 0) {
+      mainHTMLEl.innerHTML = "<h1>Your Cart is Empty!</h1>";
+      itemsCounter.classList.remove("open");
+    }
+  });
 };
 
 for (const form of updateItemForms) {

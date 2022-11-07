@@ -2,14 +2,13 @@
 <html lang="en">
   <head>
     <%- include("../../includes/head", {title: "All Orders"}) %>
-    <link rel="stylesheet" href="/styles/products.css" />
     <link rel="stylesheet" href="/styles/orders.css" />
     <script src="/scripts/order-mgmt.js" defer></script>
   </head>
   <body>
     <%- include("../../includes/header") %>
     <main>
-      <ol>
+      <ol id="orders-list">
         <% for (const order of orders) { %>
         <li><%- include("../../includes/order-item", { order }) %></li>
         <% } %>
