@@ -4,6 +4,12 @@ const express = require("express");
 const csrf = require("csurf");
 const db = require("./data/database");
 
+let PORT = 3000;
+
+if (process.env.PORT) {
+  PORT = process.env.PORT;
+}
+
 const sessionConfig = require("./config/session-config");
 const csrfToken = require("./middlewares/csrf");
 const errorHandler = require("./middlewares/error-handler");
@@ -48,7 +54,7 @@ app.use(errorHandler.serverSide);
 
 db.connectToDB()
   .then(() => {
-    app.listen(3000);
+    app.listen(PORT);
   })
   .catch((error) => {
     console.log(error);

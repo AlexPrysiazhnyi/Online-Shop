@@ -37,9 +37,7 @@ class Product {
 
   static async fetchProducts() {
     const products = await db.getDB().collection("products").find().toArray();
-    return products.map((productDocument) => {
-      return new Product(productDocument);
-    });
+    return products.map(productDocument => new Product(productDocument));
   }
 
   static async findSingleProduct(id) {
@@ -65,9 +63,7 @@ class Product {
   }
 
   static async findMultipleProducts(arrayofIDs) {
-    const productIds = arrayofIDs.map((singleId) => {
-      return new mongo.ObjectId(singleId);
-    });
+    const productIds = arrayofIDs.map(singleId => new mongo.ObjectId(singleId));
 
     const products = await db
       .getDB()
@@ -75,9 +71,7 @@ class Product {
       .find({ _id: { $in: productIds } })
       .toArray();
 
-    return products.map((product) => {
-      return new Product(product);
-    });
+    return products.map(product => new Product(product));
   }
 
   async updateProduct(product) {

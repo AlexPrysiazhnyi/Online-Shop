@@ -56,18 +56,14 @@ class Cart {
   }
 
   async updatePrices() {
-    const productIds = this.items.map((item) => {
-      return item.product.id;
-    });
+    const productIds = this.items.map(item => item.product.id);
 
     const products = await Product.findMultipleProducts(productIds);
 
     const deletableCartItemProductIds = [];
 
     for (const cartItem of this.items) {
-      const product = products.find((prod) => {
-        return prod.id === cartItem.product.id;
-      });
+      const product = products.find(prod => prod.id === cartItem.product.id);
 
       if (!product) {
         deletableCartItemProductIds.push(cartItem.product.id);
@@ -79,9 +75,9 @@ class Cart {
     }
 
     if (deletableCartItemProductIds.length > 0) {
-      this.items = this.items.filter((item) => {
-        return deletableCartItemProductIds.indexOf(item.product.id) < 0;
-      });
+      this.items = this.items.filter(
+        item => deletableCartItemProductIds.indexOf(item.product.id) < 0
+      );
     }
 
     this.totalQuantity = 0;
