@@ -52,15 +52,16 @@ h1 {
     padding: var(--space-1) var(--space-2);
 }
 
-#place-order-btn {
+.add-cart-btn {
+    background-color: var(--color-primary-blue);
+    border: var(--color-primary-blue);
+    color: var(--color-white);
     padding: var(--space-2) var(--space-4);
-    background-color: rgb(53, 167, 47);
-    border: rgb(53, 167, 47);
 }
 
-#place-order-btn:hover, #place-order-btn:active {
-    background-color: rgb(40, 127, 36);
-    border: rgb(40, 127, 36);
+.add-cart-btn:hover, .add-cart-btn:active {
+    background-color: var(--color-btn-hover);
+    border: var(--color-btn-hover);
 }
 
 .total-price-paragraph {
@@ -103,6 +104,10 @@ h1 {
     .btn {
         margin-top: var(--space-2);
         padding: var(--space-2) var(--space-4);
+    }
+
+    .add-cart-btn {
+        padding: var(--space-4) var(--space-6);
     }
 
     #place-order-btn {

@@ -25,7 +25,7 @@
           <input type="hidden" name="orderid" value="<%= order.id %>">
           <select name="status">
             <option value="pending" <% if (order.status === 'pending') { %>selected<% } %>>Pending</option>
-            <option value="fulfilled" <% if (order.status === 'fulfilled') { %>selected<% } %>>Fulfilled</option>
+            <option value="delivered" <% if (order.status === 'delivered') { %>selected<% } %>>Delivered</option>
             <option value="cancelled" <% if (order.status === 'cancelled') { %>selected<% } %>>Cancelled</option>
           </select>
           <button class="btn">Update</button>
